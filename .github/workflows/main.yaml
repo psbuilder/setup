@@ -9,7 +9,7 @@ jobs:
       - name: Check if psbuilder.version exists
         run: |
           $exist = Test-Path ./psbuilder.version
-          if ($exist -ne true) { echo "::error::Could not find psbuilder.version" }
+          if (not $exist -ne true) { echo "::error::Could not find psbuilder.version" }
           if ($exist -ne true) { Exit 1 }
         shell: pwsh
       - name: Set version
