@@ -7,4 +7,4 @@ is released, unless you are using a build matrix to test with PsBuilder.
 ## License (copyright PsBuilder contributors)
 The license of this action is **more stronger than the license PsBuilder is using**. PsBuilder considers using the BSD 3-Clause license.
 
-We might downgrade the license of PsBuilder down to the same as PsBuilder.
+We might downgrade the license of this PsBuilder setup action down to the same as PsBuilder.
