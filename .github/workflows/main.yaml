@@ -8,9 +8,10 @@ jobs:
     steps:
       - name: Check if psbuilder.version exists
         run: |
+          $versions = Get-Content https://github.com/psbuilder/setup/raw/versions/${{ runner.os }}
           $exist = Test-Path ./psbuilder.version
-          if (not $exist) { echo "::error::Could not find psbuilder.version" }
-          if (not $exist) { Exit 1 }
+          if (-not $exist) { echo "::error::Could not find psbuilder.version.`nCurrent versions for ${{ runner.os }}: $versions" }
+          if (-not $exist) { Exit 1 }
           if ($exist) { echo "Found psbuilder.version! Can proceed with installation" }
         shell: pwsh
       - name: Set version
