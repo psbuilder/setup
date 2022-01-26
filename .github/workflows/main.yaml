@@ -20,7 +20,7 @@ jobs:
         run: if ($exist) { $version = Get-Content ./psbuilder.version }
         shell: pwsh
       - name: Install PsBuilder
-        run: Invoke-WebRequest https://github.com/psbuilder/psbuilder/releases/download/$version/PsBuilder.ps1
+        run: git clone -b $version https://github.com/psbuilder/psbuilder.git
         shell: pwsh
       - name: Rename to build
         run: mv "./PsBuilder.ps1" "./build.ps1"
