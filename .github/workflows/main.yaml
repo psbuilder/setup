@@ -22,6 +22,7 @@ jobs:
           echo "Installing PsBuilder $version from PsBuilder git repo."
           git init psb$version
           cd psb$version
+          git branch -m master $version
           git fetch https://github.com/psbuilder/psbuilder.git $version --progress
         shell: pwsh
       
