@@ -6,6 +6,7 @@ jobs:
   setup:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Check if psbuilder.version exists
         run: |
           cd ./
