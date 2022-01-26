@@ -31,7 +31,7 @@ jobs:
           cd psb$version
           git branch -m psb$version
           echo "::group::Fetching https://github.com/psbuilder/psbuilder.git"
-          git fetch https://github.com/psbuilder/psbuilder.git $version --submodules
+          git fetch https://github.com/psbuilder/psbuilder.git $version --recurse-submodules --auto-maintenance
           echo "::endgroup::"
         shell: pwsh
       
