@@ -16,11 +16,11 @@ jobs:
           if (-not $exist) { Exit 1 }
           if ($exist) { echo "Found psbuilder.version! Can proceed with installation" }
         shell: pwsh
-      - name: Set version
-        run: if ($exist) { $version = Get-Content ./psbuilder.version }
-        shell: pwsh
       - name: Install PsBuilder
-        run: git clone https://github.com/psbuilder/psbuilder.git -b $version
+        run: |
+          $version = Get-Content ./psbuilder.version
+
+          git clone https://github.com/psbuilder/psbuilder.git -b $version
         shell: pwsh
       - name: Rename to build
         run: mv "./PsBuilder.ps1" "./build.ps1"
