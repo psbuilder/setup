@@ -19,7 +19,7 @@ jobs:
       - name: Install PsBuilder
         run: |
           $version = Get-Content ./psbuilder.version
-
+          echo "Installing PsBuilder $version from PsBuilder git repo."
           git clone https://github.com/psbuilder/psbuilder.git -b $version
         shell: pwsh
       
