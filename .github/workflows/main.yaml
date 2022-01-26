@@ -18,7 +18,9 @@ jobs:
         shell: pwsh
       - name: Install PsBuilder
         run: |
-          $i = (Get-Content ./psbuilder.version).Length
+          $a = (Get-Content C:\Scripts\Test.txt | Measure-Object)
+          $i = $a.Count
+
 
           if ($i -gt 2) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell." }
           if ($i -gt 2) { Exit 1 }
