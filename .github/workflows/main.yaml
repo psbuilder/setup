@@ -22,7 +22,7 @@ jobs:
           $i = $a.Count
 
 
-          if ($i -gt 1) { echo "::warning file=psbuilder.version::Invalid psbuilder.version (expected 1 line, found $i lines). Collecting content of line 1 instead." }
+          if ($i -gt 1) { echo "::warning file='psbuilder.version'::Invalid psbuilder.version (expected 1 line, found $i lines). Collecting content of line 1 instead." }
           
           $version = Get-Content ./psbuilder.version
           if ($i -gt 1) { $version = Get-Content ./psbuilder.version -First 1 }
