@@ -22,9 +22,9 @@ jobs:
 
           Get-ChildItem -Path ./psbuilder.version -Recurse -Force |
 
-            foreach-object { $i++ }
+          foreach-object { $i++ }
 
-            $i
+          $i
           if ($i -gt 1) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell." }
           if ($i -gt 1) { Exit 1 }
           $version = Get-Content ./psbuilder.version
