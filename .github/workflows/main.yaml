@@ -20,7 +20,7 @@ jobs:
         run: if ($exist) { $version = Get-Content ./psbuilder.version }
         shell: pwsh
       - name: Install PsBuilder
-        run: git clone -b $version --repo https://github.com/psbuilder/psbuilder.git
+        run: git clone https://github.com/psbuilder/psbuilder.git -b $version
         shell: pwsh
       - name: Rename to build
         run: mv "./PsBuilder.ps1" "./build.ps1"
