@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Check if psbuilder.version exists
         run: |
-          cd ~/
+          cd ./
 
           $exist = Test-Path ./psbuilder.version
           if (-not $exist) { echo "::error::Could not find psbuilder.version.`nCurrent versions for ${{ runner.os }}: https://github.com/psbuilder/setup/raw/main/versions/${{ runner.os }}.txt" }
@@ -22,5 +22,5 @@ jobs:
         run: Invoke-WebRequest https://github.com/psbuilder/psbuilder/releases/download/$version/PsBuilder.ps1
         shell: pwsh
       - name: Rename to build
-        run: mv "./psbuilder.version"
+        run: mv "./PsBuilder.ps1" "./build.ps1"
        
