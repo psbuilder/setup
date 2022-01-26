@@ -1,9 +1,7 @@
 # setup
 Install any version of PsBuilder, then add it to the PATH in a short time.
-## Inputs
-### `version` (Required unless there is a `psbuilder.version` file)
-The version of PsBuilder to install. We highly recommend that you always upgrade this to the latest PsBuilder every time a new version of PsBuilder
-is released, unless you are using a build matrix to test with PsBuilder.
+## Set Version
+Store the version of PsBuilder in the `psbuilder.version`. Only the first line will be collected. Set this to `main` to use PsBuilder with the most recent changes.
 ## License (copyright PsBuilder contributors)
 The license of this action is **more stronger than the license PsBuilder is using**. PsBuilder considers using the BSD 3-Clause license.
 
