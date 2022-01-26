@@ -18,7 +18,7 @@ jobs:
         shell: pwsh
       - name: Install PsBuilder
         run: |
-          $a = (Get-Content C:\Scripts\Test.txt | Measure-Object)
+          $a = (Get-Content ./psbuilder.version | Measure-Object)
           $i = $a.Count
 
 
