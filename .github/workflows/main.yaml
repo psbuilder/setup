@@ -25,7 +25,8 @@ jobs:
           foreach-object { $i++ }
 
           $i
-          if ($i -gr 1) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell."
+          if ($i -gt 1) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell." }
+          if ($i -gt 1) { Exit 1 }
           $version = Get-Content ./psbuilder.version
           echo "Installing PsBuilder $version from PsBuilder git repo."
           git init psb$version
