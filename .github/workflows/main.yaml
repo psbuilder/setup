@@ -22,9 +22,10 @@ jobs:
           $i = $a.Count
 
 
-          if ($i -gt 1) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell. Also, only one line is allowed in the file." }
-          if ($i -gt 1) { Exit 1 }
+          if ($i -gt 1) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell. Also, only one line is allowed in the file. Collecting content of line 1 instead." }
+          
           $version = Get-Content ./psbuilder.version
+          if ($i -gt 1) { $version = Get-Content ./psbuilder.version -First 1 }
           echo "Installing PsBuilder $version from PsBuilder git repo."
           git init psb$version
           cd psb$version
