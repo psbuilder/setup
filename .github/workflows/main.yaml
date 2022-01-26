@@ -18,6 +18,14 @@ jobs:
         shell: pwsh
       - name: Install PsBuilder
         run: |
+          $i=0
+
+          Get-ChildItem -Path c:\fso -Recurse -Force |
+
+          foreach-object { $i++ }
+
+          $i
+          if ($i -gr 1) { echo "::error::Invalid psbuilder.version. PsBuilder.version must be plain text, not powershell."
           $version = Get-Content ./psbuilder.version
           echo "Installing PsBuilder $version from PsBuilder git repo."
           git init psb$version
