@@ -9,10 +9,9 @@ jobs:
       - name: Check if psbuilder.version exists
         run: |
           cd ~/
-          Invoke-WebRequest -URI https://github.com/psbuilder/setup/raw/main/versions/${{ runner.os }}.txt
-          $versions = Get-Content /${{ runner.os }}.txt
+
           $exist = Test-Path ./psbuilder.version
-          if (-not $exist) { echo "::error::Could not find psbuilder.version.`nCurrent versions for ${{ runner.os }}: $versions" }
+          if (-not $exist) { echo "::error::Could not find psbuilder.version.`nCurrent versions for ${{ runner.os }}: https://github.com/psbuilder/setup/raw/main/versions/${{ runner.os }}.txt" }
           if (-not $exist) { Exit 1 }
           if ($exist) { echo "Found psbuilder.version! Can proceed with installation" }
         shell: pwsh
