@@ -1,14 +1,24 @@
 name: Setup PsBuilder
-
-on: push
-
+description: 'Setup PsBuilder in five seconds, and add it to the PATH'
+inputs:
+  version:
+    - description: 'Version of PsBuilder to install. Set to main for the latest breaking changes, use psbuilder.vereion to set default'
+      required: false
+branding:
+  icon: 'download'
+  color: 'blue'
+  
+      
+      
+    
 jobs:
   setup:
-    runs-on: macos-latest
+    
     steps:
-      - uses: actions/checkout@v2
+      
       - name: Check if psbuilder.version exists
         run: |
+          if ( ${{ inputs.versionc }} -ne "") { exit }
           cd ./
 
           $exist = Test-Path ./psbuilder.version
@@ -24,7 +34,8 @@ jobs:
 
           if ($i -gt 1) { echo "::warning file='psbuilder.version'::Invalid psbuilder.version (expected 1 line, found $i lines). Collecting content of line 1 instead." }
           
-          $version = Get-Content ./psbuilder.version
+          
+          if ( ${{ inputs.version ) { $version = ${{ inputs.version } else $version = Get-Content ./psbuilder.version }
           if ($i -gt 1) { $version = Get-Content ./psbuilder.version -First 1 }
           echo "Installing PsBuilder $version from PsBuilder git repo."
           git init psb$version
